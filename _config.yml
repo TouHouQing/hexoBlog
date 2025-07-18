@@ -4,16 +4,16 @@
 
 # Site
 title: TouHouQing's Blog
-subtitle: ''
-description: ''
+subtitle: '东方青的博客'
+description: '此生无悔入东方，来世愿生幻想乡'
 keywords: ''
 author: TouHouQing
-language: zh
+language: zh-CN
 timezone: 'Asia/Shanghai'
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
-url: https://TouHouQing.github.io/
+url: http://example.com
 permalink: :year/:month/:day/:title/
 permalink_defaults:
 pretty_urls:
@@ -102,6 +102,6 @@ theme: butterfly
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repository: https://github.com/TouHouQing/TouHouQing.github.io/
+  repository: git@github.com:TouHouQing/TouHouQing.github.io.git
   branch: main
 
