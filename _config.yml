@@ -6,7 +6,7 @@
 title: TouHouQing's Blog
 subtitle: '东方青的博客'
 description: '此生无悔入东方，来世愿生幻想乡'
-keywords: ''
+keywords: '东方,幻想乡,东方青,东方青的博客,touhouqing,博客,技术博客,专家博客'
 author: TouHouQing
 language: zh-CN
 timezone: 'Asia/Shanghai'
@@ -96,6 +96,8 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
+plugins:
+  - hexo-algoliasearch
 theme: butterfly
 
 # Deployment
@@ -105,3 +107,18 @@ deploy:
   repository: git@github.com:TouHouQing/TouHouQing.github.io.git
   branch: main
 
+algolia:
+  appId: "XEG344OL5Q"
+  apiKey: "204d7563d56e6acdf694e84b5fcddb4f"
+  adminApiKey: "9fd239994bc292b9a77ef50d90b9cc52"
+  chunkSize: 5000
+  indexName: "blog"
+  fields:
+    - content:strip:truncate,0,500
+    - excerpt:strip
+    - gallery
+    - permalink
+    - photos
+    - slug
+    - tags
+    - title
