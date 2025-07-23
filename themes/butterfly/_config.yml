@@ -20,6 +20,7 @@ nav:
 menu:
   首页: / || fas fa-home
   分类: /categories/ || fas fa-folder-open
+  标签: /tags/ || fas fa-tags
   友链: /link/ || fas fa-link
   关于: /about/ || fas fa-heart
   
@@ -339,7 +340,7 @@ aside:
     enable: true
     # 如果设置为 0 将显示全部
     limit: 40
-    color: false
+    color: true
     # 标签排序，random/name/length
     orderby: random
     # 排序顺序。1，升序；-1，降序
@@ -676,10 +677,10 @@ artalk:
 chat:
   # 选择: chatra/tidio/crisp
   # 如果您不需要聊天，请留空
-  use:
+  use: tidio
   # 聊天按钮 [推荐]
   # 它将在网站右下角创建一个按钮，并隐藏原始按钮
-  rightside_button: false
+  rightside_button: true
   # 向上滚动时显示原始聊天按钮，向下滚动时隐藏按钮
   button_hide_show: false
 
@@ -689,7 +690,7 @@ chatra:
 
 # https://www.tidio.com/
 tidio:
-  public_key:
+  public_key: gr7kfomrk3fkamhtgrq1tneptjq1edov
 
 # https://crisp.chat/en/
 crisp:
@@ -823,9 +824,9 @@ display_mode: light
 
 # 美化文章内容的配置
 beautify:
-  enable: false
+  enable: true
   # 指定要美化的字段（site 或 post）
-  field: post
+  field: site
   # 指定用作标题前缀的图标，例如 '\f0c1'
   title_prefix_icon:
   # 指定标题前缀图标的颜色，例如 '#F47466'
@@ -836,7 +837,7 @@ beautify:
 font:
   global_font_size:
   code_font_size:
-  font_family: BlinkMacSystemFont
+  font_family: -apple-system
   code_font_family:
 
 # 站点标题和站点副标题的字体设置

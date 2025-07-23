@@ -1,0 +1,14 @@
+- class_name: 开黑群
+  class_desc: 游戏迷快来
+  link_list:
+    - name: 千人游戏开黑群
+      link: https://qm.qq.com/q/uIAHY7DSb6
+      avatar: /img/qqgroup1.png
+      descr: 主流电脑游戏咱都玩，快来一起开黑
+- class_name: 技术群
+  class_desc: 主要交流技术
+  link_list:
+    - name: 技术交流群
+      link: https://qm.qq.com/q/AnoCjWwhVK
+      avatar: /img/qqgroup2.png
+      descr: 快来一起交流技术吧
