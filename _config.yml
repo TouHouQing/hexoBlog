@@ -122,3 +122,7 @@ algolia:
     - slug
     - tags
     - title
+
+aplayer:
+  meting: true
+  asset_inject: false
