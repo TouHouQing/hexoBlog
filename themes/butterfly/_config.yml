@@ -98,7 +98,7 @@ category_img:
 category_per_img:
 
 # 页脚的背景图片
-footer_img: /img/footer.jpg
+footer_img: /img/foot.jpg
 
 # 网站背景
 # 可以设置为颜色或图片链接
@@ -549,7 +549,7 @@ comments:
   # 如果您不需要评论，请留空
   # 选择: Disqus/Disqusjs/Livere/Gitalk/Valine/Waline/Utterances/Facebook Comments/Twikoo/Giscus/Remark42/Artalk
   # 两个评论系统的格式: Disqus,Waline
-  use: 
+  use: Twikoo
   # 在按钮旁边显示评论名称
   text: true
   # 懒加载：当评论元素进入浏览器视口时，评论系统将被加载
@@ -637,8 +637,8 @@ facebook_comments:
 # Twikoo
 # https://github.com/imaegoo/twikoo
 twikoo:
-  envId:
-  region:
+  envId: https://twikoo1-delta.vercel.app/
+  region: ap-shanghai
   # 使用 Twikoo 访客计数作为页面浏览计数
   visitor: false
   option:
@@ -1067,7 +1067,7 @@ inject:
   head:
     # - <link rel="stylesheet" href="/xxx.css">
   bottom:
-     - <div class="aplayer no-destroy" data-id="7732249926" data-server="tencent" data-type="playlist" data-fixed="true" data-autoplay="true"> </div>
+     - <div class="aplayer no-destroy" data-id="7732249926" data-server="tencent" data-type="playlist"   data-order="list" data-fixed="true" data-preload="auto" data-autoplay="true" data-mutex="true" ></div>
     # - <script src="xxxx"></script>
 
 # CDN 设置
