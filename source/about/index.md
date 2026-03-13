@@ -125,8 +125,7 @@ aside: false
 <section class="about-grid">
   <article class="about-card col-7">
     <h2>我在做什么</h2>
-    <p>我专注于把复杂问题拆解成可执行步骤，然后用稳定、可维护的方式落地。</p>
-    <p>最近主要在做 Vibe Coding 相关实践，沉淀工作流、工具组合和真实项目经验。</p>
+    <p>最近主要在做 Ai Agent相关实践，沉淀有自主性的Agent。</p>
     <div class="about-highlight">
       我相信：好的技术不是“炫技”，而是能持续创造价值、降低摩擦、让人愿意重复使用。
     </div>
@@ -136,19 +135,18 @@ aside: false
     <h2>技术栈</h2>
     <div class="stack-list">
       <span class="stack-chip">JavaScript / TypeScript</span>
-      <span class="stack-chip">Node.js</span>
-      <span class="stack-chip">Hexo + Butterfly</span>
-      <span class="stack-chip">React</span>
-      <span class="stack-chip">GitHub Actions</span>
-      <span class="stack-chip">AI Workflow</span>
+      <span class="stack-chip">Java</span>
+      <span class="stack-chip">SpringBoot</span>
+      <span class="stack-chip">SpringCloud</span>
+      <span class="stack-chip">mysql</span>
+      <span class="stack-chip">Spring ai alibaba</span>
     </div>
-    <p style="margin-top: 0.75rem;">偏好简洁架构、自动化流程和可复用方案。</p>
   </article>
 
   <article class="about-card col-12">
     <h2>你会在这个博客看到</h2>
     <p>1. 实战型技术文章：不讲空话，强调可复现步骤。</p>
-    <p>2. 工具与效率方法：聚焦可直接应用的工作流。</p>
+    <p>2. 工具与效率方法：聚焦可直接应用的vibe coding工具。</p>
     <p>3. 持续迭代记录：包括踩坑、修复与优化思路。</p>
   </article>
 
