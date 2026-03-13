@@ -34,11 +34,13 @@ aside: false
     margin: 0 0 0.6rem;
     font-size: clamp(1.7rem, 3.4vw, 2.4rem);
     letter-spacing: 0.02em;
+    color: #f8fafc;
+    text-shadow: 0 6px 20px rgba(15, 23, 42, 0.45);
   }
 
   .about-hero p {
     margin: 0.45rem 0;
-    opacity: 0.92;
+    color: rgba(248, 250, 252, 0.94);
     line-height: 1.85;
   }
 
