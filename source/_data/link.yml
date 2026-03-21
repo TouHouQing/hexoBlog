@@ -1,17 +1,10 @@
-- class_name: 开黑群
-  class_desc: 游戏迷快来
+- class_name: 在线体验
+  class_desc: Alicization 在线体验入口
   link_list:
-    - name: 千人游戏开黑群
-      link: https://qm.qq.com/q/uIAHY7DSb6
-      avatar: /img/qqgroup1.png
-      descr: 主流电脑游戏咱都玩，快来一起开黑
-- class_name: 技术群
-  class_desc: 主要交流技术
-  link_list:
-    - name: 技术交流群
-      link: https://qm.qq.com/q/AnoCjWwhVK
-      avatar: /img/qqgroup2.png
-      descr: 快来一起交流技术吧
+    - name: Alicization 在线体验
+      link: https://alz.tohoqing.com/
+      avatar: /img/posts/alicization-logo.png
+      descr: 立即在线体验 Alicization
 - class_name: 工具购买
   class_desc: Vibe Coding 工具购买入口
   link_list:
