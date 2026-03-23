@@ -13,6 +13,8 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      HEXO_DEPLOY_PRIVATE_KEY: ${{ secrets.HEXO_DEPLOY_PRIVATE_KEY }}
 
     steps:
       - name: Checkout
@@ -33,9 +35,7 @@ jobs:
         run: node tools/update-github-contributions.mjs
 
       - name: Configure SSH for hexo deploy
-        if: ${{ secrets.HEXO_DEPLOY_PRIVATE_KEY != '' }}
-        env:
-          HEXO_DEPLOY_PRIVATE_KEY: ${{ secrets.HEXO_DEPLOY_PRIVATE_KEY }}
+        if: ${{ env.HEXO_DEPLOY_PRIVATE_KEY != '' }}
         run: |
           mkdir -p ~/.ssh
           printf "%s\n" "$HEXO_DEPLOY_PRIVATE_KEY" > ~/.ssh/id_ed25519
@@ -43,12 +43,12 @@ jobs:
           ssh-keyscan github.com >> ~/.ssh/known_hosts
 
       - name: Build and deploy
-        if: ${{ secrets.HEXO_DEPLOY_PRIVATE_KEY != '' }}
+        if: ${{ env.HEXO_DEPLOY_PRIVATE_KEY != '' }}
         run: |
           npm run clean
           npm run build
           npm run deploy
 
       - name: Missing deploy key
-        if: ${{ secrets.HEXO_DEPLOY_PRIVATE_KEY == '' }}
+        if: ${{ env.HEXO_DEPLOY_PRIVATE_KEY == '' }}
         run: echo "HEXO_DEPLOY_PRIVATE_KEY is not configured. Skipping deploy."
