@@ -21,50 +21,6 @@
     timeStyle: "short"
   });
 
-  const formatDayCount = (value) => `${value} 天`;
-
-  const renderStats = (statsContainer, summary) => {
-    const items = [
-      {
-        label: "全年贡献",
-        value: numberFormatter.format(summary.totalContributions),
-        helper: "官方总贡献数"
-      },
-      {
-        label: "活跃天数",
-        value: numberFormatter.format(summary.activeDays),
-        helper: "有提交记录的天数"
-      },
-      {
-        label: "当前连续",
-        value: formatDayCount(summary.currentStreak),
-        helper: "连续活跃中"
-      },
-      {
-        label: "最长连续",
-        value: formatDayCount(summary.longestStreak),
-        helper: "最长连续活跃"
-      },
-      {
-        label: "峰值单日",
-        value: numberFormatter.format(summary.maxDaily),
-        helper: "单日最高贡献"
-      }
-    ];
-
-    statsContainer.innerHTML = items
-      .map(
-        (item) => `
-          <article class="about-contrib__stat">
-            <span>${item.label}</span>
-            <strong>${item.value}</strong>
-            <em>${item.helper}</em>
-          </article>
-        `
-      )
-      .join("");
-  };
-
   const renderMonths = (monthsContainer, months, weeks) => {
     monthsContainer.style.setProperty("--contrib-weeks", weeks);
     monthsContainer.innerHTML = months
@@ -126,21 +82,11 @@
 
   const renderEmptyState = (section, message) => {
     const summary = section.querySelector('[data-role="summary"]');
-    const stats = section.querySelector('[data-role="stats"]');
     const months = section.querySelector('[data-role="months"]');
     const heatmap = section.querySelector('[data-role="heatmap"]');
     const caption = section.querySelector('[data-role="caption"]');
 
     if (summary) summary.textContent = message;
-    if (stats) {
-      stats.innerHTML = `
-        <article class="about-contrib__stat is-empty">
-          <span>同步状态</span>
-          <strong>等待首次同步</strong>
-          <em>工作流执行后会自动替换为官方贡献数据</em>
-        </article>
-      `;
-    }
     if (months) months.innerHTML = "";
     if (heatmap) heatmap.innerHTML = "";
     if (caption) caption.textContent = "GitHub 官方 contributions 数据暂时不可用。";
@@ -165,7 +111,6 @@
     const title = section.querySelector('[data-role="title"]');
     const summary = section.querySelector('[data-role="summary"]');
     const link = section.querySelector('[data-role="link"]');
-    const stats = section.querySelector('[data-role="stats"]');
     const months = section.querySelector('[data-role="months"]');
     const heatmap = section.querySelector('[data-role="heatmap"]');
     const legend = section.querySelector('[data-role="legend"]');
@@ -192,7 +137,6 @@
         link.href = data.profileUrl;
         link.textContent = `@${data.username}`;
       }
-      if (stats) renderStats(stats, data.summary);
       if (months) renderMonths(months, data.months, data.weeks);
       if (heatmap) renderHeatmap(heatmap, data.days, data.weeks);
       if (legend) renderLegend(legend);

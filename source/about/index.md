@@ -469,18 +469,10 @@ aside: false
 <section class="about-contrib" id="about-contrib">
 <div class="about-contrib__header">
 <div>
-<p class="about-contrib__eyebrow">Official GitHub Activity</p>
 <h2 data-role="title">GitHub Contributions</h2>
 <p class="about-contrib__summary" data-role="summary">正在同步 touhouqing 的官方 contributions 数据。</p>
 </div>
 <a class="about-contrib__link" data-role="link" href="https://github.com/touhouqing" target="_blank" rel="noopener">@touhouqing</a>
-</div>
-<div class="about-contrib__stats" data-role="stats">
-<article class="about-contrib__stat is-loading"><span>全年贡献</span><strong>...</strong><em>同步中</em></article>
-<article class="about-contrib__stat is-loading"><span>活跃天数</span><strong>...</strong><em>同步中</em></article>
-<article class="about-contrib__stat is-loading"><span>当前连续</span><strong>...</strong><em>同步中</em></article>
-<article class="about-contrib__stat is-loading"><span>最长连续</span><strong>...</strong><em>同步中</em></article>
-<article class="about-contrib__stat is-loading"><span>峰值单日</span><strong>...</strong><em>同步中</em></article>
 </div>
 <div class="about-contrib__viz">
 <div class="about-contrib__board-shell">
