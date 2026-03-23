@@ -116,6 +116,73 @@ aside: false
   }
 </style>
 
+<section class="about-contrib" id="about-contrib">
+  <div class="about-contrib__header">
+    <div>
+      <p class="about-contrib__eyebrow">Official GitHub Activity</p>
+      <h2 data-role="title">GitHub Profile 3D Contrib</h2>
+      <p class="about-contrib__summary" data-role="summary">
+        正在同步 touhouqing 的官方 contributions 数据。
+      </p>
+    </div>
+    <a
+      class="about-contrib__link"
+      data-role="link"
+      href="https://github.com/touhouqing"
+      target="_blank"
+      rel="noopener"
+    >
+      @touhouqing
+    </a>
+  </div>
+
+  <div class="about-contrib__stats" data-role="stats">
+    <article class="about-contrib__stat is-loading">
+      <span>Last Year</span>
+      <strong>...</strong>
+      <em>同步中</em>
+    </article>
+    <article class="about-contrib__stat is-loading">
+      <span>Active Days</span>
+      <strong>...</strong>
+      <em>同步中</em>
+    </article>
+    <article class="about-contrib__stat is-loading">
+      <span>Current Streak</span>
+      <strong>...</strong>
+      <em>同步中</em>
+    </article>
+    <article class="about-contrib__stat is-loading">
+      <span>Longest Streak</span>
+      <strong>...</strong>
+      <em>同步中</em>
+    </article>
+    <article class="about-contrib__stat is-loading">
+      <span>Peak Day</span>
+      <strong>...</strong>
+      <em>同步中</em>
+    </article>
+  </div>
+
+  <div class="about-contrib__viz">
+    <div class="about-contrib__board-shell">
+      <div class="about-contrib__day-rail" aria-hidden="true">
+        <span></span>
+        <span>Mon</span>
+        <span>Wed</span>
+        <span>Fri</span>
+      </div>
+      <div class="about-contrib__board-scroll">
+        <div class="about-contrib__board-width">
+          <div class="about-contrib__months" data-role="months"></div>
+          <div class="about-contrib__heatmap" data-role="heatmap"></div>
+        </div>
+      </div>
+</div>
+<div class="about-contrib__legend-row"><div class="about-contrib__legend" data-role="legend"><span class="about-contrib__legend-text">Less</span><span class="about-contrib__legend-cell level-0"></span><span class="about-contrib__legend-cell level-1"></span><span class="about-contrib__legend-cell level-2"></span><span class="about-contrib__legend-cell level-3"></span><span class="about-contrib__legend-cell level-4"></span><span class="about-contrib__legend-text">More</span></div><p class="about-contrib__caption" data-role="caption">GitHub 官方 contributions 图谱，每日自动同步。</p></div>
+  </div>
+</section>
+
 <section class="about-hero">
   <h1>你好，我是 TouHouQing</h1>
   <p>一名持续折腾、持续输出的开发者，也是一位长期主义的技术博主。</p>
