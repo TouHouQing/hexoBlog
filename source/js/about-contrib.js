@@ -21,6 +21,35 @@
     timeStyle: "short"
   });
 
+  const balanceMonthLabels = (monthsContainer) => {
+    if (!monthsContainer) return;
+
+    const labels = Array.from(monthsContainer.querySelectorAll(".about-contrib__month"));
+    let lastVisible = null;
+
+    labels.forEach((label) => {
+      label.classList.remove("is-hidden");
+      label.removeAttribute("aria-hidden");
+    });
+
+    labels.forEach((label) => {
+      const left = label.offsetLeft;
+      const right = left + label.offsetWidth;
+
+      if (!lastVisible) {
+        lastVisible = { label, right };
+        return;
+      }
+
+      if (left < lastVisible.right + 4) {
+        lastVisible.label.classList.add("is-hidden");
+        lastVisible.label.setAttribute("aria-hidden", "true");
+      }
+
+      lastVisible = { label, right };
+    });
+  };
+
   const renderMonths = (monthsContainer, months, weeks) => {
     monthsContainer.style.setProperty("--contrib-weeks", weeks);
     monthsContainer.innerHTML = months
@@ -32,6 +61,12 @@
         `
       )
       .join("");
+
+    requestAnimationFrame(() => balanceMonthLabels(monthsContainer));
+
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(() => balanceMonthLabels(monthsContainer)).catch(() => {});
+    }
   };
 
   const renderHeatmap = (heatmapContainer, days, weeks) => {

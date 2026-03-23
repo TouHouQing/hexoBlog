@@ -18,6 +18,15 @@ aside: false
 
   .page.type-about #page {
     width: 100%;
+    padding: 0;
+    background: transparent;
+    box-shadow: none;
+    border-radius: 0;
+  }
+
+  .page.type-about #page .page-title {
+    margin: 0 0 1.5rem;
+    padding: 0 0.15rem;
   }
 
   .about-profile {
