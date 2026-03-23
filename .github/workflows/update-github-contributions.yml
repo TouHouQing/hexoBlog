@@ -1,6 +1,11 @@
 name: Update GitHub Contributions
 
 on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - source/data/github-contributions.json
   schedule:
     - cron: "20 1 * * *"
   workflow_dispatch:
