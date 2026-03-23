@@ -36,7 +36,7 @@
                   </div>`
               }
 
-              result += `${className}${classDesc} <div class="flink-list">${listResult}</div>`
+              result += `<section class="flink-group">${className}${classDesc}<div class="flink-list">${listResult}</div></section>`
             }
 
             document.querySelector(".flink").insertAdjacentHTML("afterbegin", result)
@@ -76,7 +76,7 @@
                 </div>`
             -
 
-          - result += `${className}${classDesc} <div class="flink-list">${listResult}</div>`
+          - result += `<section class="flink-group">${className}${classDesc}<div class="flink-list">${listResult}</div></section>`
 
         - pageContent = result + pageContent
     != pageContent
