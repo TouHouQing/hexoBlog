@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - source/data/github-contributions.json
+  schedule:
+    - cron: "20 1 * * *"
   workflow_run:
     workflows:
       - Update GitHub Contributions
@@ -57,4 +61,6 @@ jobs:
 
       - name: Missing deploy key
         if: ${{ env.HEXO_DEPLOY_PRIVATE_KEY == '' }}
-        run: echo "HEXO_DEPLOY_PRIVATE_KEY is not configured. Skipping deploy."
+        run: |
+          echo "HEXO_DEPLOY_PRIVATE_KEY is not configured. Deployment cannot continue."
+          exit 1
