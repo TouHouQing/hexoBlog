@@ -1,8 +1,9 @@
 .about-contrib {
   --contrib-weeks: 53;
-  --contrib-cell-size: 10px;
-  --contrib-gap: 3px;
+  --contrib-cell-size: 11px;
+  --contrib-gap: 4px;
   --contrib-label-track: 44px;
+  --contrib-month-font-size: 0.78rem;
   margin-bottom: 1.2rem;
   border-radius: 22px;
   padding: 1.3rem;
@@ -144,7 +145,7 @@
   white-space: nowrap;
   justify-self: start;
   align-self: end;
-  font-size: 0.7rem;
+  font-size: var(--contrib-month-font-size);
   line-height: 1;
   color: #64748b;
 }

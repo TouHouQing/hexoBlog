@@ -25,8 +25,7 @@ aside: false
   }
 
   .page.type-about #page .page-title {
-    margin: 0 0 1.5rem;
-    padding: 0 0.15rem;
+    display: none;
   }
 
   .about-profile {

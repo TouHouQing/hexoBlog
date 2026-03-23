@@ -20,6 +20,8 @@
     dateStyle: "medium",
     timeStyle: "short"
   });
+  const layoutFrames = new WeakMap();
+  const resizeObservers = new WeakMap();
 
   const balanceMonthLabels = (monthsContainer) => {
     if (!monthsContainer) return;
@@ -33,20 +35,20 @@
     });
 
     labels.forEach((label) => {
-      const left = label.offsetLeft;
-      const right = left + label.offsetWidth;
+      const rect = label.getBoundingClientRect();
+      if (!rect.width) return;
 
       if (!lastVisible) {
-        lastVisible = { label, right };
+        lastVisible = { label, rect };
         return;
       }
 
-      if (left < lastVisible.right + 4) {
+      if (rect.left < lastVisible.rect.right + 6) {
         lastVisible.label.classList.add("is-hidden");
         lastVisible.label.setAttribute("aria-hidden", "true");
       }
 
-      lastVisible = { label, right };
+      lastVisible = { label, rect };
     });
   };
 
@@ -55,18 +57,16 @@
     monthsContainer.innerHTML = months
       .map(
         (month) => `
-          <span class="about-contrib__month" style="grid-column:${month.weekIndex + 1}">
+          <span
+            class="about-contrib__month"
+            data-week-index="${month.weekIndex}"
+            style="grid-column:${month.weekIndex + 1}"
+          >
             ${month.label}
           </span>
         `
       )
       .join("");
-
-    requestAnimationFrame(() => balanceMonthLabels(monthsContainer));
-
-    if (document.fonts?.ready) {
-      document.fonts.ready.then(() => balanceMonthLabels(monthsContainer)).catch(() => {});
-    }
   };
 
   const renderHeatmap = (heatmapContainer, days, weeks) => {
@@ -138,6 +138,71 @@
     return response.json();
   };
 
+  const clamp = (value, min, max) => Math.min(max, Math.max(min, value));
+
+  const updateBoardScale = (section) => {
+    if (!section) return;
+
+    const weeks = Number(section.dataset.weeks || 0);
+    const boardShell = section.querySelector(".about-contrib__board-shell");
+    const monthsContainer = section.querySelector('[data-role="months"]');
+
+    if (!weeks || !boardShell || !monthsContainer) return;
+
+    const mobile = window.matchMedia("(max-width: 640px)").matches;
+    const compact = window.matchMedia("(max-width: 900px)").matches;
+    const labelTrack = mobile ? 36 : 44;
+    const shellGap = mobile ? 8.8 : 12;
+    const cellMin = mobile ? 8.8 : 11;
+    const cellMax = mobile ? 10.6 : 13.2;
+    const gapMin = 3;
+    const gapPreferred = mobile ? 3 : 4;
+    const padRight = compact ? 2 : 4;
+    const available = boardShell.clientWidth - labelTrack - shellGap;
+
+    if (available <= 0) return;
+
+    let gap = gapPreferred;
+    let cellSize = (available - padRight - (weeks - 1) * gap) / weeks;
+
+    if (cellSize < cellMin && gap > gapMin) {
+      gap = gapMin;
+      cellSize = (available - padRight - (weeks - 1) * gap) / weeks;
+    }
+
+    cellSize = clamp(cellSize, cellMin, cellMax);
+
+    section.style.setProperty("--contrib-label-track", `${labelTrack}px`);
+    section.style.setProperty("--contrib-gap", `${gap.toFixed(2)}px`);
+    section.style.setProperty("--contrib-cell-size", `${cellSize.toFixed(2)}px`);
+    section.style.setProperty("--contrib-month-font-size", mobile ? "0.72rem" : "0.78rem");
+
+    balanceMonthLabels(monthsContainer);
+  };
+
+  const queueBoardScale = (section) => {
+    if (!section) return;
+    const currentFrame = layoutFrames.get(section);
+    if (currentFrame) cancelAnimationFrame(currentFrame);
+
+    const nextFrame = requestAnimationFrame(() => {
+      updateBoardScale(section);
+    });
+
+    layoutFrames.set(section, nextFrame);
+  };
+
+  const ensureBoardObserver = (section) => {
+    if (!section || resizeObservers.has(section) || typeof ResizeObserver === "undefined") return;
+
+    const boardShell = section.querySelector(".about-contrib__board-shell");
+    if (!boardShell) return;
+
+    const observer = new ResizeObserver(() => queueBoardScale(section));
+    observer.observe(boardShell);
+    resizeObservers.set(section, observer);
+  };
+
   const mountSection = async (section) => {
     if (!section || section.dataset.loading === "1") return;
 
@@ -169,9 +234,16 @@
         link.href = data.profileUrl;
         link.textContent = `@${data.username}`;
       }
+      section.dataset.weeks = String(data.weeks);
       if (months) renderMonths(months, data.months, data.weeks);
       if (heatmap) renderHeatmap(heatmap, data.days, data.weeks);
       if (legend) renderLegend(legend);
+      ensureBoardObserver(section);
+      queueBoardScale(section);
+
+      if (document.fonts?.ready) {
+        document.fonts.ready.then(() => queueBoardScale(section)).catch(() => {});
+      }
     } catch (error) {
       renderEmptyState(section, "GitHub contributions 数据加载失败，稍后刷新页面再试。");
       console.error("[about-contrib]", error);
