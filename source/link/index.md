@@ -22,17 +22,11 @@ type: "link"
   }
 
   .page.type-link #article-container .flink-group h2 {
-    margin: 0;
-    border: 0;
-    color: #1e293b;
-    font-size: clamp(1.35rem, 2vw, 1.7rem);
+    display: none;
   }
 
   .page.type-link #article-container .flink-group .flink-desc {
-    margin: 0.8rem 0 1.15rem;
-    color: #475569;
-    font-size: 1rem;
-    line-height: 1.75;
+    display: none;
   }
 
   .page.type-link #article-container .flink-group .flink-list {
