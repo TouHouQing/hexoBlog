@@ -84,12 +84,10 @@
     const summary = section.querySelector('[data-role="summary"]');
     const months = section.querySelector('[data-role="months"]');
     const heatmap = section.querySelector('[data-role="heatmap"]');
-    const caption = section.querySelector('[data-role="caption"]');
 
     if (summary) summary.textContent = message;
     if (months) months.innerHTML = "";
     if (heatmap) heatmap.innerHTML = "";
-    if (caption) caption.textContent = "GitHub 官方 contributions 数据暂时不可用。";
   };
 
   const fetchData = async () => {
@@ -114,7 +112,6 @@
     const months = section.querySelector('[data-role="months"]');
     const heatmap = section.querySelector('[data-role="heatmap"]');
     const legend = section.querySelector('[data-role="legend"]');
-    const caption = section.querySelector('[data-role="caption"]');
 
     section.dataset.loading = "1";
 
@@ -140,9 +137,6 @@
       if (months) renderMonths(months, data.months, data.weeks);
       if (heatmap) renderHeatmap(heatmap, data.days, data.weeks);
       if (legend) renderLegend(legend);
-      if (caption) {
-        caption.textContent = `GitHub 官方 contributions 图谱，按日同步，时间范围 ${data.range.from} 至 ${data.range.to}。`;
-      }
     } catch (error) {
       renderEmptyState(section, "GitHub contributions 数据加载失败，稍后刷新页面再试。");
       console.error("[about-contrib]", error);

@@ -484,7 +484,7 @@ aside: false
 </div>
 </div>
 </div>
-<div class="about-contrib__legend-row"><div class="about-contrib__legend" data-role="legend"><span class="about-contrib__legend-text">Less</span><span class="about-contrib__legend-cell level-0"></span><span class="about-contrib__legend-cell level-1"></span><span class="about-contrib__legend-cell level-2"></span><span class="about-contrib__legend-cell level-3"></span><span class="about-contrib__legend-cell level-4"></span><span class="about-contrib__legend-text">More</span></div><p class="about-contrib__caption" data-role="caption">GitHub 官方 contributions 图谱，每日自动同步。</p></div>
+<div class="about-contrib__legend-row"><div class="about-contrib__legend" data-role="legend"><span class="about-contrib__legend-text">Less</span><span class="about-contrib__legend-cell level-0"></span><span class="about-contrib__legend-cell level-1"></span><span class="about-contrib__legend-cell level-2"></span><span class="about-contrib__legend-cell level-3"></span><span class="about-contrib__legend-cell level-4"></span><span class="about-contrib__legend-text">More</span></div></div>
 </div>
 </section>
 <section class="about-profile__panel about-profile__section">
