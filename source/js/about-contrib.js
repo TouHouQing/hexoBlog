@@ -2,11 +2,11 @@
   const DATA_URL = "/data/github-contributions.json";
   const SECTION_ID = "about-contrib";
   const palette = [
-    { top: "#172433", side: "#111b28", front: "#0e1723" },
-    { top: "#0f5d3f", side: "#0c452f", front: "#0b3826" },
-    { top: "#177f52", side: "#116141", front: "#0e4b33" },
-    { top: "#23a466", side: "#1a804f", front: "#16633f" },
-    { top: "#7ce38b", side: "#52b96b", front: "#369355" }
+    { top: "#ebedf0", side: "#ebedf0", front: "#ebedf0" },
+    { top: "#9be9a8", side: "#9be9a8", front: "#9be9a8" },
+    { top: "#40c463", side: "#40c463", front: "#40c463" },
+    { top: "#30a14e", side: "#30a14e", front: "#30a14e" },
+    { top: "#216e39", side: "#216e39", front: "#216e39" }
   ];
 
   const numberFormatter = new Intl.NumberFormat("en-US");
@@ -21,32 +21,32 @@
     timeStyle: "short"
   });
 
-  const pluralize = (value, unit) => `${value} ${unit}${value === 1 ? "" : "s"}`;
+  const formatDayCount = (value) => `${value} 天`;
 
   const renderStats = (statsContainer, summary) => {
     const items = [
       {
-        label: "Last Year",
+        label: "全年贡献",
         value: numberFormatter.format(summary.totalContributions),
         helper: "官方总贡献数"
       },
       {
-        label: "Active Days",
+        label: "活跃天数",
         value: numberFormatter.format(summary.activeDays),
         helper: "有提交记录的天数"
       },
       {
-        label: "Current Streak",
-        value: pluralize(summary.currentStreak, "day"),
+        label: "当前连续",
+        value: formatDayCount(summary.currentStreak),
         helper: "连续活跃中"
       },
       {
-        label: "Longest Streak",
-        value: pluralize(summary.longestStreak, "day"),
+        label: "最长连续",
+        value: formatDayCount(summary.longestStreak),
         helper: "最长连续活跃"
       },
       {
-        label: "Peak Day",
+        label: "峰值单日",
         value: numberFormatter.format(summary.maxDaily),
         helper: "单日最高贡献"
       }
@@ -135,9 +135,9 @@
     if (stats) {
       stats.innerHTML = `
         <article class="about-contrib__stat is-empty">
-          <span>Sync Status</span>
-          <strong>Unavailable</strong>
-          <em>稍后将自动重试同步</em>
+          <span>同步状态</span>
+          <strong>等待首次同步</strong>
+          <em>工作流执行后会自动替换为官方贡献数据</em>
         </article>
       `;
     }
@@ -180,7 +180,7 @@
         return;
       }
 
-      if (title) title.textContent = "GitHub Profile 3D Contrib";
+      if (title) title.textContent = "GitHub Contributions";
       if (summary) {
         summary.innerHTML = `
           过去一年累计 <strong>${numberFormatter.format(data.summary.totalContributions)}</strong> 次贡献，

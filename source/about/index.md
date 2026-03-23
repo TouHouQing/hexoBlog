@@ -120,7 +120,7 @@ aside: false
   <div class="about-contrib__header">
     <div>
       <p class="about-contrib__eyebrow">Official GitHub Activity</p>
-      <h2 data-role="title">GitHub Profile 3D Contrib</h2>
+      <h2 data-role="title">GitHub Contributions</h2>
       <p class="about-contrib__summary" data-role="summary">
         正在同步 touhouqing 的官方 contributions 数据。
       </p>
@@ -138,27 +138,27 @@ aside: false
 
   <div class="about-contrib__stats" data-role="stats">
     <article class="about-contrib__stat is-loading">
-      <span>Last Year</span>
+      <span>全年贡献</span>
       <strong>...</strong>
       <em>同步中</em>
     </article>
     <article class="about-contrib__stat is-loading">
-      <span>Active Days</span>
+      <span>活跃天数</span>
       <strong>...</strong>
       <em>同步中</em>
     </article>
     <article class="about-contrib__stat is-loading">
-      <span>Current Streak</span>
+      <span>当前连续</span>
       <strong>...</strong>
       <em>同步中</em>
     </article>
     <article class="about-contrib__stat is-loading">
-      <span>Longest Streak</span>
+      <span>最长连续</span>
       <strong>...</strong>
       <em>同步中</em>
     </article>
     <article class="about-contrib__stat is-loading">
-      <span>Peak Day</span>
+      <span>峰值单日</span>
       <strong>...</strong>
       <em>同步中</em>
     </article>
