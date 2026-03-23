@@ -8,10 +8,22 @@ aside: false
 ---
 
 <style>
+  .page.type-about #content-inner.layout.hide-aside {
+    max-width: 1360px;
+  }
+
+  .page.type-about #content-inner.layout.hide-aside > div {
+    width: 100% !important;
+  }
+
+  .page.type-about #page {
+    width: 100%;
+  }
+
   .about-profile {
     display: grid;
     gap: 24px;
-    grid-template-columns: minmax(250px, 320px) minmax(0, 1fr);
+    grid-template-columns: minmax(280px, 360px) minmax(0, 1fr);
     align-items: start;
   }
 
@@ -375,6 +387,10 @@ aside: false
   }
 
   @media (max-width: 1100px) {
+    .page.type-about #content-inner.layout.hide-aside {
+      max-width: 1000px;
+    }
+
     .about-profile {
       grid-template-columns: 1fr;
     }
