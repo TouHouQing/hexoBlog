@@ -6,8 +6,6 @@ on:
       - main
     paths-ignore:
       - source/data/github-contributions.json
-  schedule:
-    - cron: "20 1 * * *"
   workflow_run:
     workflows:
       - Update GitHub Contributions

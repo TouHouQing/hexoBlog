@@ -7,7 +7,8 @@ on:
     paths-ignore:
       - source/data/github-contributions.json
   schedule:
-    - cron: "20 1 * * *"
+    - cron: "20,50 1 * * *"
+    - cron: "20 2 * * *"
   workflow_dispatch:
 
 permissions:
@@ -32,12 +33,31 @@ jobs:
         with:
           node-version: 20
 
+      - name: Check whether scheduled sync is still needed
+        id: sync_guard
+        run: |
+          should_run=true
+
+          if [ "${{ github.event_name }}" = "schedule" ] && [ -f source/data/github-contributions.json ]; then
+            today=$(TZ=Asia/Shanghai date +%F)
+            last_sync=$(node -e "const fs=require('fs'); const data=JSON.parse(fs.readFileSync('source/data/github-contributions.json','utf8')); if (!data.generatedAt) process.exit(0); const formatter=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}); console.log(formatter.format(new Date(data.generatedAt)));")
+
+            if [ "$last_sync" = "$today" ]; then
+              should_run=false
+              echo "Scheduled sync already completed on ${today} (Asia/Shanghai)."
+            fi
+          fi
+
+          echo "should_run=$should_run" >> "$GITHUB_OUTPUT"
+
       - name: Update contributions data
+        if: steps.sync_guard.outputs.should_run == 'true'
         env:
           GITHUB_CONTRIB_USERNAME: touhouqing
         run: node tools/update-github-contributions.mjs
 
       - name: Commit updated data
+        if: steps.sync_guard.outputs.should_run == 'true'
         run: |
           if git diff --quiet -- source/data/github-contributions.json; then
             echo "No contribution changes detected."
@@ -49,3 +69,7 @@ jobs:
           git add source/data/github-contributions.json
           git commit -m "chore: refresh github contributions data"
           git push
+
+      - name: Skip duplicate scheduled sync
+        if: steps.sync_guard.outputs.should_run != 'true'
+        run: echo "Skipping because today's scheduled sync has already succeeded."
