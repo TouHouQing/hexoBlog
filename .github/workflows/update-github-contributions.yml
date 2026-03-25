@@ -6,10 +6,13 @@ on:
       - main
     paths-ignore:
       - source/data/github-contributions.json
-  schedule:
-    - cron: "20,50 1 * * *"
-    - cron: "20 2 * * *"
   workflow_dispatch:
+    inputs:
+      force:
+        description: Force refresh even if today's sync already succeeded
+        required: false
+        default: false
+        type: boolean
 
 permissions:
   contents: write
@@ -37,8 +40,15 @@ jobs:
         id: sync_guard
         run: |
           should_run=true
+          force_refresh=false
 
-          if [ "${{ github.event_name }}" = "schedule" ] && [ -f source/data/github-contributions.json ]; then
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ] && [ "${{ inputs.force }}" = "true" ]; then
+            force_refresh=true
+          fi
+
+          if [ "$force_refresh" = "true" ]; then
+            echo "Force refresh requested."
+          elif [ "${{ github.event_name }}" != "push" ] && [ -f source/data/github-contributions.json ]; then
             today=$(TZ=Asia/Shanghai date +%F)
             last_sync=$(node -e "const fs=require('fs'); const data=JSON.parse(fs.readFileSync('source/data/github-contributions.json','utf8')); if (!data.generatedAt) process.exit(0); const formatter=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Shanghai',year:'numeric',month:'2-digit',day:'2-digit'}); console.log(formatter.format(new Date(data.generatedAt)));")
 
