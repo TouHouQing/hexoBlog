@@ -24,6 +24,8 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
+    env:
+      HEXO_DEPLOY_PRIVATE_KEY: ${{ secrets.HEXO_DEPLOY_PRIVATE_KEY }}
 
     steps:
       - name: Checkout
@@ -35,6 +37,10 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 20
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Check whether scheduled sync is still needed
         id: sync_guard
@@ -68,9 +74,11 @@ jobs:
 
       - name: Commit updated data
         if: steps.sync_guard.outputs.should_run == 'true'
+        id: commit_data
         run: |
           if git diff --quiet -- source/data/github-contributions.json; then
             echo "No contribution changes detected."
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
 
@@ -79,6 +87,35 @@ jobs:
           git add source/data/github-contributions.json
           git commit -m "chore: refresh github contributions data"
           git push
+          echo "has_changes=true" >> "$GITHUB_OUTPUT"
+
+      - name: Configure SSH for hexo deploy
+        if: steps.commit_data.outputs.has_changes == 'true' && env.HEXO_DEPLOY_PRIVATE_KEY != ''
+        run: |
+          mkdir -p ~/.ssh
+          printf "%s\n" "$HEXO_DEPLOY_PRIVATE_KEY" > ~/.ssh/id_ed25519
+          chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+
+      - name: Configure Git identity for deploy
+        if: steps.commit_data.outputs.has_changes == 'true' && env.HEXO_DEPLOY_PRIVATE_KEY != ''
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --global init.defaultBranch main
+
+      - name: Build and deploy refreshed site
+        if: steps.commit_data.outputs.has_changes == 'true' && env.HEXO_DEPLOY_PRIVATE_KEY != ''
+        run: |
+          npm run clean
+          npm run build
+          npm run deploy
+
+      - name: Missing deploy key for scheduled refresh
+        if: steps.commit_data.outputs.has_changes == 'true' && env.HEXO_DEPLOY_PRIVATE_KEY == ''
+        run: |
+          echo "HEXO_DEPLOY_PRIVATE_KEY is not configured. Contributions data was updated, but site deployment cannot continue."
+          exit 1
 
       - name: Skip duplicate scheduled sync
         if: steps.sync_guard.outputs.should_run != 'true'
