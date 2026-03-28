@@ -2,9 +2,14 @@
 title: link
 date: 2025-07-22 22:39:13
 type: "link"
+top_img: false
 ---
 
 <style>
+  .page.type-link #content-inner {
+    margin-top: 0;
+  }
+
   .page.type-link #article-container .flink {
     display: grid;
     grid-template-columns: repeat(2, minmax(0, 1fr));
