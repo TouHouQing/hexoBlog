@@ -12,6 +12,7 @@ tags:
 description: 基于 Claude Code v2.1.88 技术文档与公开研究快照，系统梳理 Claude Code 的启动流程、工具系统、命令系统、查询引擎、状态管理、权限安全、Bridge 通信、UI 与插件技能架构。
 postDesc: 从 CLI 入口到 QueryEngine，再到权限、Bridge、UI 和技能体系，一次看懂 Claude Code 为什么不是“带几个工具的聊天壳”。
 ---
+原封不动的源码仓库：https://github.com/TouHouQing/claude-code
 
 **Claude Code 到底是怎么被设计出来的？**
 
