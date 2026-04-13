@@ -23,6 +23,9 @@ block content
       when 'categories'
         include includes/page/categories.pug
         +commentLoad
+      when 'wiki'
+        include includes/page/wiki.pug
+        +commentLoad
       when '404'
         include includes/page/404.pug
       when 'shuoshuo'
