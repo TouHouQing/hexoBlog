@@ -1,0 +1,5 @@
+- `npm run server` starts local Hexo preview.
+- `npm run build` regenerates static site into `public/`.
+- `npm run clean` clears Hexo cache/output before rebuilds when content changes behave unexpectedly.
+- `git status --short` is the preferred quick dirty-tree check.
+- `rg --files source/_posts` and `rg "^---|^title:|^cover:" source/_posts/<file>` are useful for locating post references and frontmatter quickly on Darwin.

@@ -1,0 +1,4 @@
+- For content-only changes, minimum completion check is `npm run build` from project root.
+- If output rendering is relevant, inspect generated asset paths/frontmatter and ensure no missing referenced images before finishing.
+- For article/asset additions, also run `git status --short` to confirm only intended files changed.
+- User can later run `serena memories check` from repo root to validate memory references after onboarding updates.

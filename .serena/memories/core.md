@@ -1,0 +1,7 @@
+- Hexo blog project rooted at `/Users/touhouqing/Desktop/GIT/hexoBlog`.
+- Main authored content lives in `source/_posts`; reusable post images live in `source/img/posts`.
+- Theme is Butterfly via `_config.yml` `theme: butterfly`; theme overrides are primarily in `_config.butterfly.yml` and `themes/butterfly/`.
+- Posts commonly use frontmatter fields: `title`, `date`, `categories`, `tags`, `cover`, `description`, optional `postDesc`.
+- Existing longform AI/workflow articles in `source/_posts` are the best style references for new posts.
+- Generated site output is `public/`; deployment publishes via git to `TouHouQing.github.io` main branch.
+- Read `mem:tech_stack` for runtime/deps, `mem:suggested_commands` for common commands, `mem:conventions` for post/content conventions, `mem:task_completion` for completion checks.

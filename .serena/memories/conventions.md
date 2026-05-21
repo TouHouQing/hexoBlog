@@ -1,0 +1,6 @@
+- New blog posts belong in `source/_posts/<slug>.md` with YAML frontmatter followed by body markdown.
+- Frontmatter style is concise and consistent: arrays for `categories` and `tags`; `cover` uses site-rooted asset paths like `/img/posts/<asset>`.
+- AI/product essays are written in first person, strong opinionated tone, short sections, and dense scannable paragraphs rather than academic structure.
+- Existing long posts often add `postDesc` in frontmatter for Butterfly card summaries; include it for feature/opinion posts when useful.
+- Reuse `source/img/posts` for article-specific visual assets and reference them with normal markdown image syntax inside posts.
+- Chinese typography in authored markdown already uses full-width punctuation and spaced inline emphasis; keep prose polished for direct publishing to blog/WeChat.

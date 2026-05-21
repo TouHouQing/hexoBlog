@@ -1,0 +1,6 @@
+- Node-based Hexo site.
+- Package manager lockfiles present: `package-lock.json` and `pnpm-lock.yaml`; `node_modules/` already checked in locally for workspace use.
+- `package.json` scripts: `build` = `hexo generate`, `clean` = `hexo clean`, `deploy` = `hexo deploy`, `server` = `hexo server`.
+- Hexo version pinned through package metadata: `8.1.0`.
+- Core dependencies include Butterfly-compatible renderers: `hexo-renderer-marked`, `ejs`, `pug`, `stylus`; search uses `hexo-algoliasearch`.
+- Site language/timezone defaults: `zh-CN`, `Asia/Shanghai` from `_config.yml`.
