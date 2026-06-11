@@ -1,0 +1,26 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:linux.do)",
+      "Bash(gh repo view:*)",
+      "Bash(gh api:*)",
+      "Bash(python3:*)",
+      "Bash(gh auth status:*)",
+      "Bash(curl:*)",
+      "Bash(ls:*)",
+      "Bash(BASE=\"/Users/touhouqing/Desktop/GIT/hexoBlog/source/img/posts\")",
+      "Bash(URL=\"https://raw.githubusercontent.com/wbh604/UZI-Skill/main/docs/screenshots\")",
+      "Bash(__NEW_LINE_b3d5f7919de173c9__ for img in chat-room deep-scan ic-memo institutional)",
+      "Bash(do:*)",
+      "Bash(if [ ! -f \"$BASE/uzi-$img.png\" ])",
+      "Bash([:*)",
+      "Bash(then)",
+      "Bash(fi)",
+      "Bash(done)",
+      "Bash(__NEW_LINE_b3d5f7919de173c9__ ls -la \"$BASE\"/uzi-*)",
+      "Bash(pip3 install:*)",
+      "WebSearch"
+    ]
+  }
+}
