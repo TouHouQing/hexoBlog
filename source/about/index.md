@@ -192,6 +192,10 @@ aside: false
     gap: 16px;
   }
 
+  .about-pinned-grid > :only-child {
+    grid-column: 1 / -1;
+  }
+
   .about-pinned-card {
     display: block;
     height: 100%;
@@ -467,11 +471,6 @@ aside: false
 <p>一个 local-first 的数字生命体实验，聚焦记忆、人格、多模态感知、主动对话与可审计执行。</p>
 <div class="about-pinned-card__meta"><span class="about-pinned-card__lang"><span class="about-pinned-card__dot typescript"></span>TypeScript</span><span>AI / Local-first</span></div>
 </a>
-<a class="about-pinned-card" href="https://github.com/TouHouQing/DataSentry" target="_blank" rel="noopener">
-<div class="about-pinned-card__top"><i class="fa-regular fa-folder-open"></i><span>DataSentry</span><span class="about-pinned-card__badge">Public</span></div>
-<p>面向企业数据治理的 AI Agent 平台，支持敏感数据识别、拦截与清洗流程，强调实战可落地。</p>
-<div class="about-pinned-card__meta"><span class="about-pinned-card__lang"><span class="about-pinned-card__dot java"></span>Java</span><span>Data Governance</span></div>
-</a>
 </div>
 </section>
 <section class="about-contrib" id="about-contrib">
@@ -511,6 +510,10 @@ aside: false
 <span class="about-stack-chip">SpringCloud</span>
 <span class="about-stack-chip">MySQL</span>
 <span class="about-stack-chip">Spring AI Alibaba</span>
+<span class="about-stack-chip">AI Agent</span>
+<span class="about-stack-chip">RAG</span>
+<span class="about-stack-chip">Tool Use</span>
+<span class="about-stack-chip">Multi-Agent</span>
 </div>
 </article>
 <article class="about-detail-card col-7">
@@ -522,6 +525,7 @@ aside: false
 <article class="about-detail-card col-5 about-detail-card--contact">
 <h3>联系与合作</h3>
 <p>如果你对技术交流、工具实践或内容合作感兴趣，欢迎通过友链页联系我。</p>
+<p>AI 中转站：<a href="https://sub.tohoqing.com" target="_blank" rel="noopener">sub.tohoqing.com</a></p>
 <p>Vibe Coding 工具购买入口：<a href="https://faka.tohoqing.com" target="_blank" rel="noopener">faka.tohoqing.com</a></p>
 </article>
 </div>
