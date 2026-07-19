@@ -525,7 +525,8 @@ aside: false
 <article class="about-detail-card col-5 about-detail-card--contact">
 <h3>联系与合作</h3>
 <p>如果你对技术交流、工具实践或内容合作感兴趣，欢迎通过友链页联系我。</p>
-<p>AI 中转站：<a href="https://sub.tohoqing.com" target="_blank" rel="noopener">sub.tohoqing.com</a></p>
+<p>THQLLM 项目官网：<a href="https://thqllm.com" target="_blank" rel="noopener">thqllm.com</a></p>
+<p>AI 中转站：<a href="https://sub.thqllm.com" target="_blank" rel="noopener">sub.thqllm.com</a></p>
 <p>Vibe Coding 工具购买入口：<a href="https://faka.tohoqing.com" target="_blank" rel="noopener">faka.tohoqing.com</a></p>
 </article>
 </div>

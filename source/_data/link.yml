@@ -1,10 +1,10 @@
-- class_name: 在线体验
-  class_desc: Alicization 在线体验入口
+- class_name: AI 项目
+  class_desc: AI 项目、工具与实验的统一入口
   link_list:
-    - name: Alicization 在线体验
-      link: https://alz.tohoqing.com/
-      avatar: /img/posts/alicization-logo.png
-      descr: 立即在线体验 Alicization
+    - name: THQLLM
+      link: https://thqllm.com/
+      avatar: https://thqllm.com/favicon.svg
+      descr: 汇集 THQ API、FluctGraph 与 Toho Image Studio
 - class_name: 工具购买
   class_desc: Vibe Coding 工具购买入口
   link_list:
@@ -16,6 +16,6 @@
   class_desc: 开发者常用 AI 模型接入入口
   link_list:
     - name: AI 中转站
-      link: https://sub.tohoqing.com
+      link: https://sub.thqllm.com
       avatar: /img/favicon.ico
       descr: 轻量稳定的 AI 模型中转服务
